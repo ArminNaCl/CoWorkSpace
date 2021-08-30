@@ -12,8 +12,6 @@ DEBUG = True
 # TODO add allowed hosts
 ALLOWED_HOSTS = []
 
-# AUTH_USER_MODEL =
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -21,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my apps
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -59,14 +59,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'postgre': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Hotel',
-        'USER': 'postgres',
-        'PASSWORD': 'Armin2000@',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
+    # 'postgre': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'Hotel',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Armin2000@',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432'
+    # }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -103,3 +103,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+# AUTH_USER_MODEL =
