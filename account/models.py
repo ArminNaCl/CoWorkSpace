@@ -28,5 +28,18 @@ class User(AbstractBaseUser, TimestampMixin):
 
 
 class Profile(BaseModel):
-    user = models.OneToOneField(User, verbose_name=_('user'), on_delete=models.CASCADE)
+    user = models.OneToOneField(User, verbose_name=_('user'), on_delete=models.CASCADE, related_name='user_of')
+    first_name = models.CharField(_('First name'), max_length=100)
+    last_name = models.CharField(_('last name'), max_length=100)
+    work_title = models.CharField(_('work title'), db_index=True, max_length=100)  # can be foreign key
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
+
+
+
+    class Meta:
+        verbose_name = 'profile'
+        verbose_name_plural = 'profiles'
 

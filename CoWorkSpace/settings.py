@@ -52,7 +52,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Hotel.wsgi.application'
+WSGI_APPLICATION = 'CoWorkSpace.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -61,7 +61,7 @@ DATABASES = {
     },
     # 'postgre': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'Hotel',
+    #     'NAME': 'CoWorkSpace',
     #     'USER': 'postgres',
     #     'PASSWORD': 'Armin2000@',
     #     'HOST': 'localhost',
