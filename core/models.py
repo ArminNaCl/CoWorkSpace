@@ -32,6 +32,10 @@ class BaseModel(models.Model):
         self.delete_time = timezone.now()
         self.save()
 
+    def hard_delete(self):
+        super(BaseModel, self).delete()
+
+
 
 class TestModel(BaseModel):
     """

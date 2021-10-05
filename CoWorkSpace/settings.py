@@ -21,7 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'core',
+    'account',
+    'building',
 ]
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -33,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Hotel.urls'
+ROOT_URLCONF = 'CoWorkSpace.urls'
 
 TEMPLATES = [
     {

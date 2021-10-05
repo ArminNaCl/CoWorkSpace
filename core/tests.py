@@ -1,5 +1,5 @@
 from django.test import TestCase
-from core.models import TestModel
+from .models import TestModel
 
 
 class TestBaseModel(TestCase):
@@ -43,3 +43,11 @@ class TestBaseModel(TestCase):
         :return: True
         """
         return self.assertIn(self.t2, TestModel.objects.archive())
+
+    def testHarDelete(self):
+        """
+        test hard delete
+        :return: True
+        """
+        self.t2.hard_delete()
+        return self.assert_(self.t2)
