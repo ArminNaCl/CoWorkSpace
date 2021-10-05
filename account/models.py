@@ -36,10 +36,20 @@ class Profile(BaseModel):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
-
-
-
     class Meta:
         verbose_name = 'profile'
         verbose_name_plural = 'profiles'
 
+
+class Office(BaseModel, TimestampMixin):
+    header = models.OneToOneField(User, verbose_name=_('header'), on_delete=models.SET_NULL, related_name='header_of')
+    name = models.CharField(_('name'), max_length=120)
+    website = models.URLField(_('website'), )
+    description = models.TextField(_('description'), )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'office'
+        verbose_name_plural = 'offices'

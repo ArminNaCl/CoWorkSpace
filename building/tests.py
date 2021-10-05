@@ -158,7 +158,8 @@ class TestRoom(TestCase):
     def setUp(self):
         self.test_building_1 = Building.objects.create(name='test_name', street='test_street', post_code='435')
         self.test_room_1 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_day=90.000)
-        self.test_room_2 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_day=90.000)
+        self.test_room_2 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_day=90.000,
+                                               has_printer=True ,has_tv=True)
 
     def testObjectCreate(self):
         """
@@ -208,6 +209,34 @@ class TestRoom(TestCase):
         :return: True
         """
         return self.assertEqual(self.test_room_1.price_per_day, 90.000)
+
+    def testRoomTV(self):
+        """
+        test if TV of this Room object set True
+        :return: True
+        """
+        return self.assertFalse(self.test_room_1.has_tv)
+
+    def testRoomTV2(self):
+        """
+        test if TV of this Room object set True
+        :return: True
+        """
+        return self.assertTrue(self.test_room_2.has_tv)
+
+    def testRoomPrinter(self):
+        """
+        test if Printer of this Room object set True
+        :return: True
+        """
+        return self.assertFalse(self.test_room_1.has_printer)
+
+    def testRoomPrinter2(self):
+        """
+        test if Printer of this Room object set True
+        :return: True
+        """
+        return self.assertTrue(self.test_room_2.has_tv)
 
     def testDeleteObject(self):
         """
