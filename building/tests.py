@@ -117,10 +117,10 @@ class TestTable(TestCase):
 
     def testTablePrice(self):
         """
-        test if Price per Hours of this table object set True
+        test if Price per day of this table object set True
         :return: True
         """
-        return self.assertEqual(self.test_table_1.price_per_hour, 15.000)
+        return self.assertEqual(self.test_table_1.price_per_day, 15.000)
 
     def testDeleteObject(self):
         """
@@ -205,10 +205,10 @@ class TestRoom(TestCase):
 
     def testRoomPrice(self):
         """
-        test if Price per Days of this room object set True
+        test if Price per month of this room object set True
         :return: True
         """
-        return self.assertEqual(self.test_room_1.price_per_day, 90.000)
+        return self.assertEqual(self.test_room_1.price_per_month, 90.000)
 
     def testRoomTV(self):
         """

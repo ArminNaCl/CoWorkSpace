@@ -31,7 +31,7 @@ class Table(BaseModel, TimestampMixin):
     building = models.ForeignKey('Building', verbose_name=_('building'), on_delete=models.CASCADE,
                                  related_name='table', related_query_name='tables')
     capacity = models.PositiveSmallIntegerField(_('capacity'), default=1)
-    price_per_hour = models.DecimalField(_('Price per Hours'), max_digits=7, decimal_places=3 )
+    price_per_day = models.DecimalField(_('Price per Hours'), max_digits=7, decimal_places=3)
 
     def __str__(self):
         return str(self.building) + '-table-' + str(self.id)
@@ -48,7 +48,7 @@ class Room(BaseModel, TimestampMixin):
     capacity = models.PositiveSmallIntegerField(_('capacity'), default=6)
     has_tv = models.BooleanField(_('has TV'), default=False)
     has_printer = models.BooleanField(_('has TV'), default=False)
-    price_per_day = models.DecimalField(_('price per day') ,max_digits=7, decimal_places=3)
+    price_per_month = models.DecimalField(_('price per Month'), max_digits=7, decimal_places=3)
 
     def __str__(self):
         return str(self.building) + '-room-' + str(self.id)
