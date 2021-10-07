@@ -70,8 +70,8 @@ class TestBuilding(TestCase):
 class TestTable(TestCase):
     def setUp(self):
         self.test_building_1 = Building.objects.create(name='test_name', street='test_street', post_code='435')
-        self.test_table_1 = Table.objects.create(building=self.test_building_1, capacity=1, price_per_hour=15.000)
-        self.test_table_2 = Table.objects.create(building=self.test_building_1, capacity=1, price_per_hour=15.000)
+        self.test_table_1 = Table.objects.create(building=self.test_building_1, capacity=1, price_per_day=15.000)
+        self.test_table_2 = Table.objects.create(building=self.test_building_1, capacity=1, price_per_day=15.000)
 
     def testObjectCreate(self):
         """
@@ -157,8 +157,8 @@ class TestTable(TestCase):
 class TestRoom(TestCase):
     def setUp(self):
         self.test_building_1 = Building.objects.create(name='test_name', street='test_street', post_code='435')
-        self.test_room_1 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_day=90.000)
-        self.test_room_2 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_day=90.000,
+        self.test_room_1 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_month=90.000)
+        self.test_room_2 = Room.objects.create(building=self.test_building_1, capacity=6, price_per_month=90.000,
                                                has_printer=True ,has_tv=True)
 
     def testObjectCreate(self):
@@ -167,6 +167,15 @@ class TestRoom(TestCase):
         :return: True
         """
         return self.assertIn(self.test_room_1, Room.objects.all())
+
+    def testObjectCreate2(self):
+        """
+        test if a Room object create and seve in db
+        :return: True
+        """
+        test_room_this = Room(building=self.test_building_1,capacity=8,price_per_month=100.000)
+        test_room_this.save()
+        return self.assertIn(test_room_this,Room.objects.all())
 
     def testRoomInBuilding(self):
         """
