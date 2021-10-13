@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'core',
     'account',
     'building',
+    'book',
 ]
 SITE_ID = 1
 

@@ -39,6 +39,7 @@ class Profile(BaseModel):
     @property
     def start_up(self):
         return StartUpMembers.objects.filter(member=self).first().startUp
+
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 

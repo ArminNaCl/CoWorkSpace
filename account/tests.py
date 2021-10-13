@@ -118,11 +118,12 @@ class TestProfile(TestCase):
         check if start up @property return correct start up
         :return: True
         """
-        test_startup = StartUp.objects.create(header=self.test_profile_1,name='test_startup')
-        test_user_2 = User.objects.create(username='test_username_2',email='test2@test.tst')
-        test_profile_2 = Profile.objects.create(user=test_user_2,first_name='first_name',last_name='lastname')
-        test_startup_memeber = StartUpMembers.objects.create(member=test_profile_2,startUp=test_startup,job_title='test developer')
-        return self.assertEqual(test_profile_2.start_up,test_startup)
+        test_startup = StartUp.objects.create(header=self.test_profile_1, name='test_startup')
+        test_user_2 = User.objects.create(username='test_username_2', email='test2@test.tst')
+        test_profile_2 = Profile.objects.create(user=test_user_2, first_name='first_name', last_name='lastname')
+        test_startup_memeber = StartUpMembers.objects.create(member=test_profile_2, startUp=test_startup,
+                                                             job_title='test developer')
+        return self.assertEqual(test_profile_2.start_up, test_startup)
 
     def testProfileSoftDelete(self):
         """
@@ -207,4 +208,3 @@ class TestStartUp(TestCase):
         test_profile_2 = Profile.objects.create(user=test_user_2, first_name='fname2', last_name='lname2')
         StartUpMembers.objects.create(member=test_profile_2, startUp=self.test_startup, job_title='test engineer')
         return self.assertIn(test_profile_2, self.test_startup.members)
-
