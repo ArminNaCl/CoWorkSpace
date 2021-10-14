@@ -19,6 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # ------------------------------
+    'rest_framework',
+
     # my apps
     'core',
     'account',
@@ -26,7 +29,6 @@ INSTALLED_APPS = [
     'book',
 ]
 SITE_ID = 1
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
